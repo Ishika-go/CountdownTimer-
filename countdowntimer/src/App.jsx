@@ -21,20 +21,26 @@ function App() {
     if (remainingTime === 0) {
       setTimerCompleted(true);
     } else {
-      const totalSeconds = Math.floor(remainingTime / 1000);
-      const totalMinutes = Math.floor(totalSeconds / 60);
-      const totalHours = Math.floor(totalMinutes / 60);
-      const remainingDays = Math.floor(totalHours / 24);
+      // const totalSeconds = Math.floor(remainingTime / 1000);
+      // const totalMinutes = Math.floor(totalSeconds / 60);
+      // const totalHours = Math.floor(totalMinutes / 60);
+      // const remainingDays = Math.floor(totalHours / 24);
 
-      const updatedDays = remainingDays % 30;
-      const updatedHours = totalHours % 24;
-      const updatedMinutes = totalMinutes % 60;
-      const updatedSeconds = totalSeconds % 60;
+      // const updatedDays = remainingDays % 100;
+      // const updatedHours = totalHours % 24;
+      // const updatedMinutes = totalMinutes % 60;
+      // const updatedSeconds = totalSeconds % 60;
 
-      setDays(updatedDays);
-      setHours(updatedHours);
-      setMinutes(updatedMinutes);
-      setSeconds(updatedSeconds);
+      // setDays(updatedDays);
+      // setHours(updatedHours);
+      // setMinutes(updatedMinutes);
+      // setSeconds(updatedSeconds);
+
+      setDays(Math.floor(remainingTime / (1000*60*60*24)));
+      setHours(Math.floor(remainingTime / (1000*60*60)%24));
+      setMinutes(Math.floor(remainingTime / 1000/60)%60);
+      setSeconds(Math.floor((remainingTime / 1000%60)));
+
     }
   };
 
@@ -53,7 +59,9 @@ function App() {
 
   useEffect(() => {
     const targetDateTime = new Date(`${targetDate}T${targetTime}:00`).getTime();
+    console.log(targetDateTime);
     const remainingTime = targetDateTime - currentTime;
+    console.log(remainingTime);
 
     if (remainingTime > 0) {
       formatTime(remainingTime);
@@ -97,8 +105,8 @@ function App() {
       </button>
 
       {days > 99 ? (
-        <p>Selected time is more than 99 days</p>
-      ) : timerCompleted === true ? (
+        <h4>Selected time is more than 99 days</h4>
+      ) : (timerCompleted === true ? (
         <p> 🎉 The countdown is over. what is next on your adventure 🎉</p>
       ) : (
         <div className="containTime">
@@ -120,7 +128,7 @@ function App() {
             <h3>seconds</h3>
           </div>
         </div>
-      )}
+      ))}
     </div>
   );
 }
