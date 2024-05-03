@@ -1,3 +1,91 @@
+// import React, { useState, useEffect } from "react";
+// import "./App.css";
+
+// function App() {
+//   const [targetDate, setTargetDate] = useState("");
+//   const [targetTime, setTargetTime] = useState("");
+//   const [days, setDays] = useState(0);
+//   const [hours, setHours] = useState(0);
+//   const [minutes, setMinutes] = useState(0);
+//   const [seconds, setSeconds] = useState(0);
+//   const [running, setRunning] = useState(false);
+//   const [currentTime, setCurrentTime] = useState(false);
+
+//   const handleOnClick = () => {
+//     setRunning((prev) => !prev);
+//   };
+
+//   const handleAddMilliseconds = (dateTime) => {
+//     const updatedDateTimeString = dateTime.toISOString().slice(0, 16);
+
+//     const updatedDate = updatedDateTimeString.slice(0, 10);
+//     const updatedTime = updatedDateTimeString.slice(11);
+
+//     setTargetDate(updatedDate);
+//     setTargetTime(updatedTime);
+//   };
+
+//   const formatTime = () => {
+//     if (days < 33) {
+//       setDays(Math.floor(currentTime / (1000 * 60 * 60 * 24)));
+//       setHours(Math.floor((currentTime / (1000 * 60 * 60 * 24)) % 24));
+//       setMinutes(Math.floor((currentTime / 1000 / 60) % 60));
+//       setSeconds(Math.floor((currentTime / 1000) % 60));
+//       const dateTime = new Date(currentTime);
+//       handleAddMilliseconds(dateTime);
+//     } else {
+//       setRunning(false);
+//     }
+//   };
+
+//   useEffect(() => {
+//     let interval;
+//     if (running) {
+//       interval = setInterval(() => {
+//         setCurrentTime((prevTime) => prevTime + 1);
+//         formatTime();
+//       }, 1000);
+//     } else {
+//       clearInterval(interval);
+//     }
+
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   }, [running]);
+
+//   return (
+//     <div>
+//       <div className="inputClass">
+//         <input
+//           type="date"
+//           id="targetDate"
+//           value={targetDate}
+//           onChange={(e) => setTargetDate(e.target.value)}
+//         />
+//         <input
+//           type="time"
+//           id="targetTime"
+//           value={targetTime}
+//           onChange={(e) => setTargetTime(e.target.value)}
+//         />
+//       </div>
+
+//       <button onClick={handleOnClick}>
+//         {running ? "cancelTimer" : "start"}
+//       </button>
+
+//       <div className="containTime">
+//         <div className="days">{days < 10 ? "0" + days : days}</div>
+//         <div className="hours">{hours < 10 ? "0" + hours : hours}</div>
+//         <div className="minutes">{minutes < 10 ? "0" + minutes : minutes}</div>
+//         <div className="seconds">{seconds < 10 ? "0" + seconds : seconds}</div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
 
 import React, { useState, useEffect } from "react";
 import "./App.css";

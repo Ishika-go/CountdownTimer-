@@ -14,7 +14,7 @@ button{
   /* width:10vw; */
   font-size: 20px;
   /* margin:  auto; */
-  margin: 4px;
+  margin: 10px;
   padding: 10px; 
   background-color: inherit;
   border: 4px solid white;
@@ -48,7 +48,7 @@ input{
 }
 .days{
   height: 11vh;
-  width: 13vw;
+  width: 6vw;
   /* background-color: blueviolet; */
   background: -webkit-linear-gradient(16deg, #e527ef, #8d09e5);
   margin:6px;
@@ -71,7 +71,7 @@ color: #f0f4f9;
 
 .hours{
   height: 11vh;
-  width: 13vw;
+  width: 6vw;
   /* background-color: blueviolet; */
   background: -webkit-linear-gradient(16deg, #e527ef, #8d09e5);
   margin:6px;
@@ -96,7 +96,7 @@ font-weight: 600;
 
 .minutes{
   height: 11vh;
-  width: 11vw;
+  width: 6vw;
   /* background-color: blueviolet; */
   background: -webkit-linear-gradient(16deg, #e527ef, #8d09e5);
   margin:6px;
@@ -119,7 +119,7 @@ color: #f0f4f9;
 
 .seconds{
   height: 11vh;
-  width: 13vw;
+  width: 6vw;
   /* background-color: blueviolet; */
   background: -webkit-linear-gradient(16deg, #e527ef, #8d09e5);
   margin:8px;
